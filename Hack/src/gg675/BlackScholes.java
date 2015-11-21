@@ -7,21 +7,32 @@ public class BlackScholes {
 	
 	static DecimalFormat df = new DecimalFormat("#.###");
 	ArrayList<Double> table = new ArrayList<Double>();
+	int days;
 	double std;
 	double T;
+	double r;
+	double v;
+	double S;
+	double X;
 	public void blacky (double stdev, ArrayList tble){
-		int days;
+
 		std = stdev;
 		this.table =tble;
 		days = table.size();
 		T = (days / 365.0);
-		
+		r = 0.08;
+		S = (double) table.get(0);
+		v = std / S;
+		X = S + (std / 2);
 		for (int i = 0; i < table.size(); i ++){
+			int temp = table.size() - i;
+			S = (double) table.get(temp - 1);
 			
-			System.out.println(tble.get(i));
-			//T = (days-- / 365.0);
-		//System.out.println("Call Price: " + df.format(callPrice(i)));
-		//System.out.println("Put Price: " + df.format(putPrice(i)));
+			T = (days-- / 365.0);
+			System.out.println("Call Price: " + df.format(callPrice()));
+			System.out.println("Put Price: " + df.format(putPrice()));
+			System.out.println("Strike Price " + df.format(X));
+			System.out.println("Stock Price " + df.format(S));
 		}
 		
 	}
@@ -31,11 +42,8 @@ public class BlackScholes {
 	 *  T = time to expiration
 	 *  v = standard deviation of log returns
 	 */
-	public double callPrice(int i){
-		double S = (double) table.get(i);
-		double X = S + (std / 2);
-		double v = std / S;
-		double r = 0.08;
+	public double callPrice(){
+		
 		double d1, d2;
 		d1 = (Math.log(S/X) + ((r + Math.pow(v, 2)/2)*T))/(v*Math.sqrt(T));
 		d2 = (Math.log(S/X) + ((r - Math.pow(v, 2)/2)*T))/(v*Math.sqrt(T));
@@ -44,16 +52,11 @@ public class BlackScholes {
 		
 	}
 	
-	public double putPrice(int i){
+	public double putPrice(){
+		
 		double d1, d2;
-		double S = (double) table.get(i);
-		double X = S + (std / 2);
-		double v = std / S;
-		double r = 0.08;
 		d1 = (Math.log(S/X) + ((r + Math.pow(v, 2)/2)*T))/(v*Math.sqrt(T));
 		d2 = (Math.log(S/X) + ((r - Math.pow(v, 2)/2)*T))/(v*Math.sqrt(T));
-		System.out.println("The stock price is: " + S);
-		System.out.println("Days to expiration: " + (table.size()-i));
 		return (X*Math.exp(-r*T)*cum(-d2)-S*cum(-d1));
 		
 	}

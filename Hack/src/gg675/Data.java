@@ -26,8 +26,6 @@ public class Data {
 					line = input.nextLine();
 					String[] breakline = line.split("\\,");
 					table.add(Double.parseDouble(breakline[4]));
-				
-					
 					
 				}	
 			}
