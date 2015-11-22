@@ -1,10 +1,20 @@
 package gg675;
 
+import java.awt.EventQueue;
+
 public class Main {
 
 	public static void main(String[] args) {
-		Skelleton sk = new Skelleton("tsla");
-
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GraphGui window = new GraphGui();
+					window.getFrame().setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 }
