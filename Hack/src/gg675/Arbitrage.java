@@ -11,6 +11,7 @@ public class Arbitrage {
 		
 		if (left - right < 0){
 			System.out.println("No arbitrage");
+			System.out.println(df.format(stock) + " " + "+" + " " + df.format(put)+ " " + "=" + " " + df.format(strike) + " " + "+" + " " + df.format(call));
 			System.out.println(df.format(left) + " " + "=" + " " + df.format(right));
 		}
 		
