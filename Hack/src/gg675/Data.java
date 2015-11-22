@@ -12,28 +12,27 @@ public class Data {
 	static DecimalFormat df = new DecimalFormat("#.##");
 	static int numOfRow = 0;
 	private Scanner input;
-	
-	public void connect(String link){
-		try{
-			
-			URL yhoofin = new URL (link);
+
+	public void connect(String link) {
+		try {
+
+			URL yhoofin = new URL(link);
 			URLConnection data = yhoofin.openConnection();
-			input = new Scanner (data.getInputStream());
+			input = new Scanner(data.getInputStream());
 			String line = input.nextLine();
-			while (input.hasNextLine()){
+			while (input.hasNextLine()) {
 				numOfRow++;
-				for (int i = 0; i<numOfRow; i++){
+				for (int i = 0; i < numOfRow; i++) {
 					line = input.nextLine();
 					String[] breakline = line.split("\\,");
 					table.add(Double.parseDouble(breakline[4]));
-					
-				}	
+
+				}
 			}
+		} catch (Exception e) {
+
 		}
-		catch (Exception e){
-			
-		}
-		
+
 		Stdev ST = new Stdev(table);
 	}
 }

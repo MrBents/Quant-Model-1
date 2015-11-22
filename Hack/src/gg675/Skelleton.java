@@ -12,9 +12,12 @@ public class Skelleton {
 
 	public Skelleton(String symbol) {
 
-		String url = "http://real-chart.finance.yahoo.com/table.csv?s=" + symbol + "&d=" + end.get(Calendar.MONTH)
-				+ "&e=" + end.get(Calendar.DAY_OF_MONTH) + "&f=" + end.get(Calendar.YEAR) + "&g=d" + "&a="
-				+ start.get(Calendar.MONTH) + "&b=" + start.get(Calendar.DAY_OF_MONTH) + "&c="
+		String url = "http://real-chart.finance.yahoo.com/table.csv?s="
+				+ symbol + "&d=" + end.get(Calendar.MONTH) + "&e="
+				+ end.get(Calendar.DAY_OF_MONTH) + "&f="
+				+ end.get(Calendar.YEAR) + "&g=d" + "&a="
+				+ start.get(Calendar.MONTH) + "&b="
+				+ start.get(Calendar.DAY_OF_MONTH) + "&c="
 				+ start.get(Calendar.YEAR) + "&ignore=.csv";
 
 		Url = url;

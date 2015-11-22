@@ -11,10 +11,10 @@ public class Stdev {
 	BlackScholes BS = new BlackScholes();
 
 	public Stdev(ArrayList<Double> table) {
-	
-		//for (int i =0; i < table.size(); i++){
-			//System.out.println(table.get(i));
-		//}
+
+		// for (int i =0; i < table.size(); i++){
+		// System.out.println(table.get(i));
+		// }
 		mean(table);
 		variance(table, mean);
 		getStd(variance);
