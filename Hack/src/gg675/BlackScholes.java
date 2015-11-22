@@ -22,7 +22,7 @@ public class BlackScholes {
 		this.table = tble;
 		days = table.size();
 		T = (days / 365.0);
-		r = 0.08;
+		r = 0.0011;
 		S = (double) table.get(0);
 		v = std / S;
 		X = S + (std / 2);

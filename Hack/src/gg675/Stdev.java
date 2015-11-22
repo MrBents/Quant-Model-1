@@ -11,10 +11,10 @@ public class Stdev {
 	BlackScholes BS = new BlackScholes();
 
 	public Stdev(ArrayList<Double> table) {
-
-		// for (int i =0; i < table.size(); i++){
-		// System.out.println(table.get(i));
-		// }
+	
+		//for (int i =0; i < table.size(); i++){
+			//System.out.println(table.get(i));
+		//}
 		mean(table);
 		variance(table, mean);
 		getStd(variance);
@@ -28,7 +28,7 @@ public class Stdev {
 			me = me + (double) table.get(i);
 		}
 		mean = me / table.size();
-		System.out.println("Mean: " + df.format(mean));
+		//System.out.println("Mean: " + df.format(mean));
 	}
 
 	public void variance(ArrayList<Double> table, double MEAN) {
@@ -38,12 +38,12 @@ public class Stdev {
 			var = var + Math.pow(x, 2);
 		}
 		variance = var / table.size();
-		System.out.println("Variance: " + df.format(variance));
+		//System.out.println("Variance: " + df.format(variance));
 	}
 
 	public double getStd(double var) {
 		stDEV = Math.sqrt(var);
-		System.out.println("StDev " + df.format(stDEV));
+		//System.out.println("StDev " + df.format(stDEV));
 		return stDEV;
 	}
 

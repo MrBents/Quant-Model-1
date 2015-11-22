@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Data {
 
+	
 	ArrayList<Double> table = new ArrayList<Double>();
 	static DecimalFormat df = new DecimalFormat("#.##");
 	static int numOfRow = 0;
